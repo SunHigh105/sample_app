@@ -9,6 +9,10 @@ module SessionsHelper
         cookies.permanent[:remember_token] = user.remember_token
     end
 
+    def current_user?(user)
+        user == current_user
+    end
+
     def current_user
         # session[:user_id]が存在する場合は一時セッションからユーザーを取り出す
         if(user_id = session[:user_id])
